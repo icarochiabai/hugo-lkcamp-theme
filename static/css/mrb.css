@@ -1,0 +1,25 @@
+:root {
+    --bg: 255, 205, 56;
+    --fg: 255, 141, 41;
+}
+
+.most-recent-box {
+    padding: 20px;
+    background-color: rgba(var(--bg), 0.1);
+    outline: 2px dashed rgba(var(--fg), 0.4);
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+.most-recent-box nav {
+    padding: 0px;
+    margin: 0px;
+}
+
+.most-recent-box nav a {
+    padding: 0px;
+}
+
+.bold {
+    font-weight: bold;
+}

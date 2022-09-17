@@ -1,0 +1,12 @@
+{{ range .Pages }}
+<link rel="stylesheet" href="/css/mrb.css">
+
+    {{if eq .Title "Posts"}}
+        <div class="most-recent-box">    
+            <p>Confira nossa <span class="bold">publicação mais recente!</span></p>
+            {{ range first 1 .Pages }}
+                {{partial "list-item.html" . }}
+            {{ end }}
+        </div>
+    {{ end }}
+{{ end }}

@@ -1,0 +1,46 @@
+:root {
+  --error-bg: 252, 232, 233;
+  --error-fg: 255, 31, 39;
+  --warning-bg: 255, 234, 219;
+  --warning-fg: 202, 93, 15;
+  --info-bg: 225, 230, 245;
+  --info-fg: 26, 74, 186;
+  --success-bg: 238, 247, 239;
+  --success-fg: 43, 141, 61;
+}
+
+.error {
+  padding: 20px;
+  background-color: rgba(var(--error-bg), 1);
+  color: rgba(var(--error-fg), 1);
+  outline: 3px solid rgba(var(--error-fg), 0.2);
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+.warning {
+  padding: 20px;
+  background-color: rgba(var(--warning-bg), 1);
+  color: rgba(var(--warning-fg), 1);
+  outline: 3px solid rgba(var(--warning-fg), 0.2);
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+.info {
+  padding: 20px;
+  background-color: rgba(var(--info-bg), 1);
+  color: rgba(var(--info-fg), 1);
+  outline: 3px solid rgba(var(--info-fg), 0.2);
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+.success {
+  padding: 20px;
+  background-color: rgba(var(--success-bg), 1);
+  color: rgba(var(--success-fg), 1);
+  outline: 3px solid rgba(var(--success-fg), 0.2);
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
