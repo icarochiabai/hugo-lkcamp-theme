@@ -1,12 +1,11 @@
 :root {
-    --bg: 255, 205, 56;
-    --fg: 255, 141, 41;
+    --bg:0, 255, 171;
 }
 
 .most-recent-box {
     padding: 20px;
-    background-color: rgba(var(--bg), 0.1);
-    outline: 2px dashed rgba(var(--fg), 0.4);
+    background-color: rgba(var(--bg), 0.05);
+    outline: 3px dashed rgba(var(--bg), 0.4);
     margin-bottom: 15px;
     border-radius: 15px;
 }

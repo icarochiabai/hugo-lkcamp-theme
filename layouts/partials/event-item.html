@@ -1,0 +1,6 @@
+<nav class="list-item">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <span class="list-item-date">
+      acontecerá no dia {{ index .Params.dataDoEvento 0 }}/{{ index .Params.dataDoEvento 1 }}/{{ index .Params.dataDoEvento 2 }}
+    </span>
+  </nav>

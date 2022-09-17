@@ -1,0 +1,43 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+<main class="content" role="main">
+  <article class="article">
+    <h1 class="article-title">Eventos próximos</h1>
+    {{ $isNear := false }}
+    {{ range .Pages }}
+      {{ $day := (lt (now.Format "02") (index (.Params.dataDoEvento) 0)) }}
+      {{ $month := (le (now.Format "01") (index (.Params.dataDoEvento) 1)) }}
+      {{ $year := (le (now.Format "2006") (index (.Params.dataDoEvento) 2)) }}
+
+      {{ if and ($year) ($month) ($day)}}
+          {{ partial "event-item.html" . }}
+          {{ $isNear = true }}
+      {{ end }}
+    {{ end }}
+    {{ if not $isNear }}
+      <h4 style="opacity:0.4; font-weight: lighter">Desculpe, não há nenhum evento próximo!</h4>
+    {{ end }}
+    
+    <hr style="opacity: 0.2">
+    
+    <h1 class="article-title">Eventos recentes</h1>
+    {{ $isRecent := false }}
+    {{ range .Pages }}
+      {{ $day := (ge (now.Format "02") (index (.Params.dataDoEvento) 0)) }}
+      {{ $month := (ge (now.Format "01") (index (.Params.dataDoEvento) 1)) }}
+      {{ $year := (ge (now.Format "2006") (index (.Params.dataDoEvento) 2)) }}
+
+      {{ if and ($year) ($month) ($day)}}
+          {{ partial "event-item.html" . }}
+          {{ $isRecent = true }}
+      {{ end }}
+    {{ end }}
+    {{ if not $isRecent }}
+      <h4 style="opacity:0.4; font-weight: lighter">Desculpe, não houve nenhum evento recente!</h4>
+    {{ end }}
+  </article>
+
+</main>
+
+{{ partial "footer.html" . }}
