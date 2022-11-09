@@ -2,8 +2,8 @@
 {{ partial "header.html" . }}
 
 <main class="content" role="main">
-  <article class="article">
-    <h1 class="article-title">Eventos próximos</h1>
+  <div class="list">
+    <h2 class="list-title">Eventos próximos</h1>
     {{ $isNear := false }}
     {{ range .Pages }}
       {{ $day := (lt (now.Format "02") (index (.Params.dataDoEvento) 0)) }}
@@ -21,14 +21,14 @@
     
     <hr style="opacity: 0.2">
     
-    <h1 class="article-title">Eventos recentes</h1>
+    <h2 class="list-title">Eventos recentes</h1>
     {{ $isRecent := false }}
     {{ range .Pages }}
       {{ $day := (ge (now.Format "02") (index (.Params.dataDoEvento) 0)) }}
-      {{ $month := (ge (now.Format "01") (index (.Params.dataDoEvento) 1)) }}
+      {{ $month := (gt (now.Format "01") (index (.Params.dataDoEvento) 1)) }}
       {{ $year := (ge (now.Format "2006") (index (.Params.dataDoEvento) 2)) }}
 
-      {{ if and ($year) ($month) ($day)}}
+      {{ if (and ($year) ($month) (not $day)) }}
           {{ partial "event-item.html" . }}
           {{ $isRecent = true }}
       {{ end }}
@@ -36,7 +36,7 @@
     {{ if not $isRecent }}
       <h4 style="opacity:0.4; font-weight: lighter">Desculpe, não houve nenhum evento recente!</h4>
     {{ end }}
-  </article>
+    </div>
 
 </main>
 
